@@ -1,0 +1,18 @@
+{% extends 'base.html'%}
+{% block title %}
+<title>เพิ่มนักเรียน</title>
+{% endblock title %}
+
+{% block content %}
+
+<div class="row" style="padding:20px">
+    <form action="{{url_for('เพิ่มนักเรียน')}}" method="POST">
+        <input type="text" name="First_Last" placeholder="ชื่อ-นามสกุล">
+        <input type="number" name="Age" placeholder="อายุ">
+        <input type="text" name="Status" placeholder="สถานะ">
+        <button class="btn">เพิ่มนักเรียน</button>
+    </form>
+</div>
+
+
+{% endblock %}

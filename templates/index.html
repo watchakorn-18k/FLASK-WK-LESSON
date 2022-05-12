@@ -16,10 +16,9 @@
     </thead>
     <tbody>
         {% for i in data %}
-        <tr>
-            <td>{{i["ชื่อ"]}}</td>
-            <td>{{i["อายุ"]}}</td>
-            <td>{{i["สถานะ"]}}</td>
+        <td>{{i[0]}}</td>
+        <td>{{i[1]}}</td>
+        <td>{{i[2]}}</td>
         </tr>
         {% endfor %}
     </tbody>
