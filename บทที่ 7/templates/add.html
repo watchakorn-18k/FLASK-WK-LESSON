@@ -1,0 +1,27 @@
+{% extends 'base.html'%} {% block title %}
+<title>เพิ่มนักเรียน</title>
+{% endblock title %} {% block content %}
+
+<div class="row" style="padding: 20px">
+    <form action="{{url_for('เพิ่มนักเรียน')}}" method="POST" class="col s12">
+        <div class="input-field col s12">
+            <input name="First_Last" placeholder=" " id="first_name" type="text" class="validate" />
+            <label for="first_name">ชื่อและนามสกุล</label>
+        </div>
+        <div class="input-field col s6">
+            <input id="age" name="Age" placeholder=" " type="number" class="validate" />
+            <label for="age">อายุ</label>
+        </div>
+        <div class="input-field col s12">
+            <input name="Status" placeholder=" " id="Status" type="text" class="validate" />
+            <label for="Status">สถานะ</label>
+        </div>
+        <center>
+            <div style="padding: 20px">
+                <button class="btn">เพิ่มนักเรียน</button>
+            </div>
+        </center>
+    </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends 'base.html'%}
+{% block title %}
+<title>หนาแรกนะ</title>
+{% endblock title %}
+
+
+{% block content %}
+
+  
+  
+<h5 class="center">รายชื่อนักเรียน</h5>
+<table class="highlight centered">
+    <thead>
+        <tr>
+            <th>ชื่อและนามสกุล</th>
+            <th>อายุ</th>
+            <th>สถานะ</th>
+            <th>🪄</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for i in data %}
+        <td>{{i[1]}}</td>
+        <td>{{i[2]}}</td>
+        <td>{{i[3]}}</td>
+        <td><a class='dropdown-trigger btn' data-target='dropdown'><i class="material-icons" >settings</i></a></td>
+
+        </tr>
+        <ul id='dropdown' class='dropdown-content'>
+    <li><a href="แก้ไขรายชื่อ?update={{i[0]}}" class="amber-text text-darken-1"><i class="material-icons" >edit</i>แก้ไข</a></li>
+    <li><a href="ลบรายชื่อ?delete={{i[0]}}" class="red-text text-accent-2"><i class="material-icons" >backspace</i>ลบ</a></li>
+  </ul>
+        {% endfor %}
+    </tbody>
+</table>
+
+
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.dropdown-trigger');
+    var instances = M.Dropdown.init(elems, {
+      // the dropdown is aligned to left
+      alignment: 'right',
+      // enabled for example to be visible
+      constrainWidth: false,
+    });
+  });
+      
+</script>
+
+
+
+{% endblock %}
