@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@materializecss/materialize@2.0.1-alpha/dist/css/materialize.min.css">
+    
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+
+    {% block title %}
+
+    {% endblock title %}
+</head>
+
+<body>
+    <nav>
+        <div class="nav-wrapper">
+            <a href="{{url_for('home')}} " class="brand-logo center">WK</a>
+            <ul class="left hide-on-med-and-down">
+                <li {% if request.endpoint == "home"%} class="active" {% endif %}>
+                    <a href="{{url_for('home')}}">หน้าแรก</a></li>
+                <li {% if request.endpoint == "เนื้อหา"%} class="active" {% endif %}><a
+                        href="{{url_for('เนื้อหา')}}">เนื้อหา</a></li>
+                <li {% if request.endpoint == "ติดต่อ"%} class="active" {% endif %}><a
+                        href="{{url_for('ติดต่อ')}}">ติดต่อ</a></li>
+                <li {% if request.endpoint == "เกี่ยวกับฉัน"%} class="active" {% endif %}><a
+                        href="{{url_for('เกี่ยวกับ')}}">เกี่ยวกับฉัน</a></li>
+                <li {% if request.endpoint == "เพิ่มนักเรียน"%} class="active" {% endif %}><a
+                        href="{{url_for('เพิ่มนักเรียน')}}">เพิ่มนักเรียน</a></li>
+            </ul>
+            <ul class="right">
+                {% if current_user.is_authenticated %}
+                <li >{{current_user.username}}</li>
+                <li ><a href="{{url_for('logout')}}">ออกจากระบบ</a></li>
+                {% endif %}
+                {% if request.endpoint != "login" and not current_user.is_authenticated %}
+                <li ><a href="{{url_for('login')}}">เข้าสู่ระบบ</a></li>
+                {% endif %}
+            </ul>
+        </div>
+
+    </nav>
+    {% block content %}
+
+
+    {% endblock %}
+
+   <script src="https://cdn.jsdelivr.net/npm/@materializecss/materialize@2.0.1-alpha/dist/js/materialize.min.js"></script>
+</body>
+
+</html>
