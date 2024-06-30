@@ -1,0 +1,65 @@
+{% extends 'base.html'%}
+{% block title %}
+<title>สมัครสมาชิก</title>
+{% endblock title %}
+
+
+{% block content %}
+
+<center><h4>สมัครสมาชิก</h4><center>
+
+<div class="row" style="padding: 20px">
+    <form action="{{url_for('register')}}" method="POST" class="col s12">
+        {{ form.csrf_token }}
+        <div class="input-field col s12">
+            {{ form.first_name(
+                placeholder=" ",
+                class="validate"
+                ) 
+            }}
+            <label for="{{ form.first_name.id }}">ชื่อจริง</label>
+        </div>
+        <div class="input-field col s12">
+            {{ form.last_name(
+                placeholder=" ",
+                class="validate"
+                ) 
+            }}
+            <label for="{{ form.last_name.id }}">นามสกุล</label>
+        </div>
+        <div class="input-field col s12">
+            {{ form.username(
+                placeholder=" ",
+                class="validate"
+                ) 
+            }}
+            <label for="{{ form.username.id }}">ชื่อผู้ใช้งาน</label>
+        </div>
+        <div class="input-field col s6">
+            {{ form.password(
+                placeholder=" ",
+                class="validate"
+                ) 
+            }}
+            <label for="{{ form.password.id }}">รหัสผ่าน</label>
+        </div>
+        <div class="input-field col s6">
+            {{ form.confirm_password(
+                placeholder=" ",
+                class="validate"
+                ) 
+            }}
+            <label for="{{ form.confirm_password.id }}">ยืนยันรหัสผ่าน</label>
+        </div>
+        <p style="text-align: right !important"><a href="{{url_for('login')}}">มีบัญชีอยู่แล้ว ?</a></p>
+        <center>
+            <div style="padding: 20px">
+               {{ form.submit_register(class="btn",value="สมัครสมาชิก") }}
+            </div>
+        </center>
+    </form>
+</div>
+
+
+
+{% endblock content %}

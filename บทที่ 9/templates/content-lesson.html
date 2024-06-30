@@ -1,0 +1,30 @@
+{% extends 'base.html'%}
+
+{% block title %}
+<title>เนื้อหา</title>
+{% endblock title %}
+
+{% block content %}
+<h1 class="text-4xl text-center m-4">เนื้อหา</h1>
+
+<ul class="collapsible m-6">
+  {% for x in data.lesson %}
+  <li>
+      <div class="collapsible-header"><i class="material-icons">filter_drama</i>{{ loop.index }}.{{ x.lesson_name }}</div>
+      <div class="collapsible-body"><span>{{ x.lesson_detail }}</span></div>
+  </li>
+  {% endfor %}
+
+</ul>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var elems = document.querySelectorAll('.collapsible');
+        var instances = M.Collapsible.init(elems, {
+            // specify options here
+        });
+    });
+</script>
+
+{% endblock %}
