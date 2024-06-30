@@ -9,3 +9,13 @@ rmdir /s /q __pycache__
 ```
 python run.py
 ```
+
+## สร้าง virtualenv
+```
+python -m venv _env
+```
+
+## .env
+```.env
+SQLALCHEMY_DATABASE_URI = "sqlite:///School.db"
+```
