@@ -1,4 +1,4 @@
-# บทที่ 10 เปลี่ยนโครงสร้างเป็น Clean Architecture
+# บทที่ 11 ขึ้น Deploy บน Cloud
 
 
 ## ลบ __pycache__
@@ -24,4 +24,10 @@ pip install -r requirements.txt
 ## .env
 ```.env
 SQLALCHEMY_DATABASE_URI = "sqlite:///School.db"
+```
+
+## Run Dokcer , Podman
+```
+podman build -t name_images
+podman run -it --rm -p 5000:5000 name_images
 ```

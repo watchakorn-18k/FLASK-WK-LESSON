@@ -1,0 +1,28 @@
+{% extends 'base.html' %} {% block title %}
+  <title>เพิ่มนักเรียน</title>
+{% endblock %} {% block content %}
+  <center class="m-4">
+    <p class="center text-4xl">รายชื่อนักเรียน</p>
+  </center>
+  <div class="row m-4" style="padding: 20px">
+    <form action="{{ url_for('main.add_student') }}" method="POST" class="col s12">
+      {{ form.csrf_token }}
+
+      <div class="input-field col s12">
+        {{ form.First_Last(placeholder=' ', class='validate') }}
+        <label for="{{ form.First_Last.id }}">ชื่อและนามสกุล</label>
+      </div>
+      <div class="input-field col s6">
+        {{ form.Age(placeholder=' ', class='validate') }}
+        <label for="{{ form.Age.id }}">อายุ</label>
+      </div>
+      <div class="input-field col s12">
+        {{ form.Status(placeholder=' ', class='validate') }}
+        <label for="{{ form.Status.id }}">สถานะ</label>
+      </div>
+      <center>
+        <div style="padding: 20px">{{ form.Submit(class='btn', value='เพิ่มนักเรียน') }}</div>
+      </center>
+    </form>
+  </div>
+{% endblock %}
