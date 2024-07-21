@@ -1,0 +1,43 @@
+{% extends 'base.html'%}
+{% block title %}
+<title>เข้าสู่ระบบ</title>
+{% endblock title %}
+
+
+{% block content %}
+
+<center>
+    <h4 class="text-4xl m-4">เข้าสู่ระบบ</h4>
+    <center>
+
+        <div class="row" style="padding: 20px">
+            <form action="{{url_for('main.login')}}" method="POST" class="col s12">
+                {{ form.csrf_token }}
+                <div class="input-field col s12">
+                    {{ form.username(
+                    placeholder=" ",
+                    class="validate"
+                    )
+                    }}
+                    <label for="{{ form.username.id }}">ชื่อผู้ใช้งาน</label>
+                </div>
+                <div class="input-field col s6">
+                    {{ form.password(
+                    placeholder=" ",
+                    class="validate"
+                    )
+                    }}
+                    <label for="{{ form.password.id }}">รหัสผ่าน</label>
+                </div>
+                <p style="text-align: right !important"><a href="{{url_for('main.register')}}">สมัครบัญชีใหม่ ?</a></p>
+                <center>
+                    <div style="padding: 20px">
+                        {{ form.submit_login(class="btn",value="login") }}
+                    </div>
+                </center>
+            </form>
+        </div>
+
+
+
+        {% endblock content %}

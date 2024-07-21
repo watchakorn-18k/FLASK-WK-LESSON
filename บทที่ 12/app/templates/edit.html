@@ -1,0 +1,24 @@
+{% extends 'base.html' %} {% block title %}
+  <title>แก้ไขรายชื่อ</title>
+{% endblock %} {% block content %}
+  <div class="row" style="padding: 20px">
+    <form action="/update_record?update={{ data.id }}" method="POST" class="col s12">
+      {{ form.csrf_token }}
+      <div class="input-field col s12">
+        {{ form.First_Last(placeholder=' ', class='validate', value=data.First_Last) }}
+        <label for="{{ form.First_Last.id }}">ชื่อและนามสกุล</label>
+      </div>
+      <div class="input-field col s6">
+        {{ form.Age(placeholder=' ', class='validate', value=data.Age) }}
+        <label for="{{ form.Age.id }}">ชื่อและนามสกุล</label>
+      </div>
+      <div class="input-field col s12">
+        {{ form.Status(placeholder=' ', class='validate', value=data.Status) }}
+        <label for="{{ form.Status.id }}">ชื่อและนามสกุล</label>
+      </div>
+      <center>
+        <div style="padding: 20px">{{ form.Submit(class='btn', value='update_record') }}</div>
+      </center>
+    </form>
+  </div>
+{% endblock %}
