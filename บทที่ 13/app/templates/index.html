@@ -1,0 +1,69 @@
+{% extends 'base.html'%}
+{% block title %}
+<title>หน้าแรกนะ</title>
+{% endblock title %}
+
+
+{% block content %}
+
+
+<center class="m-4">
+  <p class="center text-4xl">รายชื่อนักเรียน</p>
+</center>
+<div class="flex flex-row justify-between items-center mx-16">
+
+  {% if current_user.is_authenticated %}
+  <p></p>
+  <a href="{{url_for('main.add_student')}}" class="btn"><i class="material-icons">add</i></a>
+  {% endif %}
+
+</div>
+<table class="highlight centered">
+  <thead>
+    <tr>
+      <th>ชื่อและนามสกุล</th>
+      <th>อายุ</th>
+      <th>สถานะ</th>
+      {% if current_user.permission_admin == True %}
+      <th>🪄</th>
+      {% endif %}
+    </tr>
+  </thead>
+  <tbody>
+    {% for i in data %}
+    <td>{{i.First_Last}}</td>
+    <td>{{i.Age}}</td>
+    <td>{{i.Status}}</td>
+    {% if current_user.permission_admin == True %}
+    <td><a class='dropdown-trigger btn' data-target='dropdown'><i class="material-icons">settings</i></a></td>
+    {% endif %}
+    </tr>
+    <ul id='dropdown' class='dropdown-content'>
+      <li><a href="update_record?update={{i.id}}" class="amber-text text-darken-1"><i
+            class="material-icons">edit</i>แก้ไข</a></li>
+      <li><a href="delete_record?delete={{i.id}}" class="red-text text-accent-2"><i
+            class="material-icons">backspace</i>ลบ</a></li>
+    </ul>
+    {% endfor %}
+  </tbody>
+</table>
+
+
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var elems = document.querySelectorAll('.dropdown-trigger');
+    var instances = M.Dropdown.init(elems, {
+      // the dropdown is aligned to left
+      alignment: 'right',
+      // enabled for example to be visible
+      constrainWidth: false,
+    });
+  });
+
+</script>
+
+
+
+{% endblock %}

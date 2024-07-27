@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>เนื้อหา</title>
+{% endblock %}
+
+{% block content %}
+<h1 class="text-4xl text-center m-4">เนื้อหา</h1>
+
+{% for x in data.content_data %}
+<div class="card m-6">
+  <div class="card-image">
+    <img src="{{x.image_url}}" class="object-cover h-64" />
+    <span class="card-title">
+      <p class="backdrop-blur-2xl m-2 p-2">เนื้อหา {{ x.content_name }}</p>
+    </span>
+  </div>
+  <div class="card-content">
+    <p>{{ x.content_detail }}</p>
+  </div>
+  <div class="card-action">
+    <a href="{{ url_for('main.content_id', id=x.id) }}">คลิกเข้าเนื้อหา</a>
+  </div>
+</div>
+{% endfor %}
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var elems = document.querySelectorAll('.collapsible')
+    var instances = M.Collapsible.init(elems, {
+      // specify options here
+    })
+  })
+</script>
+{% endblock %}

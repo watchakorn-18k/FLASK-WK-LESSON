@@ -1,0 +1,3 @@
+id,username,password,first_name,last_name,permission_admin
+1,somchay,$2b$12$vk8JYjAdHBWEktp3F6JFzOMRPlcJsdTiBfsaCbwEQTSwNGG0r1GTK,สมชาย,สบายดีนะ,0
+2,admin,$2b$12$fEegvFKcoTt14krgGdykMODUFIMZWFovlx1cl/6piKfO/b864cO0q,admin,admin,True
