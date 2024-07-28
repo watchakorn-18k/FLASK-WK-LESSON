@@ -16,9 +16,15 @@ python run.py
 python -m venv _env
 ```
 
-## Install requrement
+## Install requirements
 ```
 pip install -r requirements.txt
+```
+
+## Start server
+```
+set FLASK_RUN=run.py
+flask run
 ```
 
 ## .env
