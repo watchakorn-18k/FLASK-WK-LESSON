@@ -1,0 +1,4 @@
+id,content_name,content_detail,image_url
+2,go,Golang ที่เฉียบคม,https://wk18k-flask-web.s3.ap-southeast-1.amazonaws.com/static/image/go.png,
+1,python,สอนเนื้อหาเกี่ยวกับ python,https://wk18k-flask-web.s3.ap-southeast-1.amazonaws.com/static/image/python.png,
+3,react,react ที่เร็วจัด,https://wk18k-flask-web.s3.ap-southeast-1.amazonaws.com/static/image/react.png,

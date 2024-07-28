@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>เพิ่มเนื้อหา</title>
+{% endblock %}
+
+{% block content %}
+<center class="m-4">
+    <p class="center text-4xl">เพิ่มเนื้อหา</p>
+</center>
+<div class="row m-4" style="padding: 20px">
+    <form action="{{ url_for('main.content_add') }}" enctype="multipart/form-data" method="POST"
+        class="col s12 flex flex-col gap-4">
+        {{ form.csrf_token }}
+
+        <div class="s12 m6 input-field outlined">
+            {{ form.content_name(placeholder=' ', class='validate') }}
+            <label for="{{ form.content_name.id }}">Content name</label>
+        </div>
+
+        <div class="s12 m6 input-field outlined">
+            {{ form.content_detail(placeholder=' ', class='validate') }}
+            <label for="{{ form.content_detail.id }}">Content detail</label>
+        </div>
+
+        <div class="file-field input-field">
+            <div class="btn">
+                <span>Image file</span>
+                {{ form.image_file(placeholder=' ', class='validate') }}
+            </div>
+            <div class="file-path-wrapper">
+                <input class="file-path validate" type="text">
+            </div>
+        </div>
+        <center>
+            <div style="padding: 20px">{{ form.Submit(class='btn w-full', value='Add content') }}</div>
+        </center>
+    </form>
+</div>
+{% endblock %}
