@@ -1,0 +1,51 @@
+{% extends 'base.html'%}
+{% block title %}
+<title>เข้าสู่ระบบ</title>
+{% endblock title %}
+
+
+{% block content %}
+
+<center>
+    <h4 class="text-4xl m-4">เข้าสู่ระบบ</h4>
+    <center>
+        <div class="flex items-center justify-center">
+            <a href="{{url_for('main.login_provider')}}"
+                class="px-4 py-2 border flex gap-2 rounded-lg hover:shadow transition duration-150">
+                <img class="w-6 h-6" src="https://www.svgrepo.com/show/475656/google-color.svg" loading="lazy"
+                    alt="google logo">
+                <span>เข้าสู่ระบบด้วย Google</span>
+            </a>
+        </div>
+        <div class="row" style="padding: 20px">
+
+            <form action="{{url_for('main.login')}}" method="POST" class="col s12">
+                {{ form.csrf_token }}
+                <div class="input-field col s12">
+                    {{ form.username(
+                    placeholder=" ",
+                    class="validate"
+                    )
+                    }}
+                    <label for="{{ form.username.id }}">ชื่อผู้ใช้งาน</label>
+                </div>
+                <div class="input-field col s6">
+                    {{ form.password(
+                    placeholder=" ",
+                    class="validate"
+                    )
+                    }}
+                    <label for="{{ form.password.id }}">รหัสผ่าน</label>
+                </div>
+                <p style="text-align: right !important"><a href="{{url_for('main.register')}}">สมัครบัญชีใหม่ ?</a></p>
+                <center>
+                    <div style="padding: 20px">
+                        {{ form.submit_login(class="btn",value="login") }}
+                    </div>
+                </center>
+            </form>
+        </div>
+
+
+
+        {% endblock content %}
