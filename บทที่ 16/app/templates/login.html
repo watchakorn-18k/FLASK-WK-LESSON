@@ -1,0 +1,57 @@
+{% extends 'base.html'%}
+{% block title %}
+<title>เข้าสู่ระบบ</title>
+{% endblock title %}
+
+
+{% block content %}
+
+<center>
+    <h4 class="text-4xl m-4">เข้าสู่ระบบ</h4>
+    <center>
+        <div class="flex items-center justify-center">
+            <a href="{{url_for('main.login_provider')}}"
+                class="px-4 py-2 border flex gap-2 rounded-lg hover:shadow transition duration-150 w-1/4">
+                <img class="w-6 h-6" src="https://www.svgrepo.com/show/475656/google-color.svg" loading="lazy"
+                    alt="google logo">
+                <span>เข้าสู่ระบบด้วย Google</span>
+            </a>
+        </div>
+        <div class="m-4"></div>
+        <div>
+
+            <form action="{{url_for('main.login')}}" method="POST" class="justify-center items-center col s12 w-1/4">
+                {{ form.csrf_token }}
+                <div class="input-field col s12">
+                    {{ form.email(
+                    placeholder=" ",
+                    class="validate"
+                    )
+                    }}
+                    <label for="{{ form.email.id }}">อีเมล</label>
+                </div>
+                <div class="input-field col s6">
+                    {{ form.password(
+                    placeholder=" ",
+                    class="validate"
+                    )
+                    }}
+                    <label for="{{ form.password.id }}">รหัสผ่าน</label>
+                </div>
+                <p style="text-align: right !important"><a href="{{url_for('main.register')}}">สมัครบัญชีใหม่ ?</a></p>
+                {% if error %}
+                <p
+                    class="my-4 items-center rounded-md bg-red-50 px-2 py-1 text-m font-medium text-red-700 ring-1 ring-inset ring-red-600/10">
+                    {{error}}</p>
+                {% endif %}
+                <center>
+                    <div>
+                        {{ form.submit_login(class="btn w-full",value="เข้าสู่ระบบ") }}
+                    </div>
+                </center>
+            </form>
+        </div>
+
+
+
+        {% endblock content %}
